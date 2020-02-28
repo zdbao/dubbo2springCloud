@@ -1,0 +1,27 @@
+#服务端口
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+    #如果想使用https,设置[nonSecurePortEnabled,securePortEnabled]=[false,true]，另外设置statusPageUrl，healthCheckUrl，homePageUrl为https
+    #non-secure-port-enabled: false
+    #secure-port-enabled: true
+    #status-page-url: https://${eureka.instance.hostname}/info
+    #healthCheckUrl: https://${eureka.instance.hostname}/health
+    #homePageUrl: https://${eureka.instance.hostname}/
+  client:
+    #register-with-eureka=false与fetch-registry=false来表明自己是eureka server
+    register-with-eureka: false
+    fetch-registry: false
+    #eureka.client.healthcheck.enabled只能在application.yml设置有效，在bootstrap.yml中不生效。如果需要自定义的健康检查，设置自己的com.netflix.appinfo.HealthCheckHandler、
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+

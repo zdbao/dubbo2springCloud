@@ -1,0 +1,4 @@
+com\example\provider\DemoProviderConfiguration.class
+com\example\provider\dto\User.class
+com\example\provider\service\UserService.class
+com\example\provider\service\UserServiceHystrix.class
