@@ -9,16 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo-consumer</artifactId>
+    <artifactId>demo-provider-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-consumer</name>
+    <name>demo-provider-server</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
         <dubbo.version>2.7.3</dubbo.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
-        <skipTests>true</skipTests>
     </properties>
 
     <dependencyManagement>
@@ -35,20 +34,18 @@
 
     <dependencies>
 
-        <!-- 临时使用eureka测试 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-       <!-- <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>demo-provider-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>-->
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>demo-provider-http-client</artifactId>
+            <artifactId>demo-provider-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -62,6 +59,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -86,11 +88,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <exclusions>
@@ -100,6 +97,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
     <build>
